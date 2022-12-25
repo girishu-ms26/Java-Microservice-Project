@@ -1,4 +1,4 @@
-package com.at0m.productmanagement.util;
+package com.at0m.common.util;
 
 import com.at0m.common.model.ProductAvailableQuantity;
 import org.springframework.data.mongodb.core.query.Criteria;

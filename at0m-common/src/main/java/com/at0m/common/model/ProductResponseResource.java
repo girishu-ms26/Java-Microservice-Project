@@ -18,7 +18,6 @@ public class ProductResponseResource {
     private boolean successful;
     private String productName;
     private String price;
-    private boolean availability;
     private int quantityAvailable;
     private Date lastModified;
 }

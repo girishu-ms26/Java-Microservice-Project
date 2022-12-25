@@ -1,7 +1,7 @@
 package com.at0m.common.service;
 
 import com.at0m.common.model.ProductAvailableQuantity;
-import com.at0m.productmanagement.util.AvailableQuantityUtil;
+import com.at0m.common.util.AvailableQuantityUtil;
 import com.mongodb.MongoBulkWriteException;
 import com.mongodb.bulk.BulkWriteError;
 import lombok.extern.slf4j.Slf4j;
