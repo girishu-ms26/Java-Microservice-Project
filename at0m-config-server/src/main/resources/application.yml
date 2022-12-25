@@ -9,7 +9,7 @@ spring:
           searchPaths: at0m-config
 
 server:
-  port: 8081
+  port: 8080
 
 eureka:
   client:
