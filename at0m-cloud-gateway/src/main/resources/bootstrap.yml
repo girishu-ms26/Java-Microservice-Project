@@ -1,7 +1,0 @@
-spring:
-  application:
-    name: at0m-cloud-gateway
-  cloud:
-    config:
-      uri:
-        - http://localhost:8080/

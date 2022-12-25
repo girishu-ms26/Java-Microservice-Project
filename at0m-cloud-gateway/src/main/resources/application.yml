@@ -1,0 +1,44 @@
+spring:
+  application:
+    name: at0m-cloud-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: AT0M-PRODUCT-API
+          uri: lb://AT0M-PRODUCT-API
+          predicates:
+            - Path=/api/produ**
+        - id: AT0M-AVAILABLE-QUANTITY-API
+          uri: lb://AT0M-AVAILABLE-QUANTITY-API
+          predicates:
+            - Path=/api/quant**
+
+server:
+  port: 8081
+
+eureka:
+  client:
+    service-url:
+      default-zone: ${EUREKA_URI:http://localhost:8761/eureka}
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${random.value}
+  enabled: true
+
+ribbon:
+  listOfServers: http://localhost:8761/
+  eureka:
+    enabled: true
+
+feign:
+  client:
+    config:
+      default:
+        logger-level: full
+        read-timeout: 5000
+        connect-timeout: 5000
+
+logging:
+  level:
+    root: info
