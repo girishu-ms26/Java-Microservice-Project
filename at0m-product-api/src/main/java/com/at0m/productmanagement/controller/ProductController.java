@@ -63,4 +63,9 @@ public class ProductController {
     public void deleteProduct(@PathVariable String productName){
         productService.deleteProduct(productName);
     }
+
+    @GetMapping("/hi/")
+    public List<ProductResponseResource> random(){
+        return productService.getAllProductsList();
+    }
 }
