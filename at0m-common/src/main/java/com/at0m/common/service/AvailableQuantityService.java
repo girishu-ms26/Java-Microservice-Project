@@ -51,7 +51,7 @@ public class AvailableQuantityService {
                 MongoBulkWriteException mongoBulkWriteException = (MongoBulkWriteException) cause;
                 List<BulkWriteError> bulkWriteErrors = mongoBulkWriteException.getWriteErrors();
                 bulkWriteErrors.forEach(bulkWriteError -> {
-                    log.error(bulkWriteError.getIndex() + " Is already present in Database");
+                    log.info(bulkWriteError.getIndex() + " Is already present in Database");
                 });
             }
         }
