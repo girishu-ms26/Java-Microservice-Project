@@ -52,8 +52,7 @@ public class ProductUtil {
     public Update createUpdateQuery(Product product){
         Update update = (new Update()
                 .set("productName",product.getProductName())
-                .set("price",product.getPrice())
-                .set("lastModified",new Date()));
+                .set("price",product.getPrice()));
         return update;
     }
 }
