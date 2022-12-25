@@ -10,7 +10,7 @@ spring:
             - name: CircuitBreaker
               args:
                 name: AT0M-PRODUCT-API
-                fallbackuri: /api/produ**/**
+                fallbackuri: forward:/api/produ**/**
         - id: AT0M-AVAILABLE-QUANTITY-API
           uri: lb://AT0M-AVAILABLE-QUANTITY-API
           predicates:
@@ -19,7 +19,7 @@ spring:
             - name: CircuitBreaker
               args:
                 name: AT0M-AVAILABLE-QUANTITY-API
-                fallbackuri: /api/quant**/**
+                fallbackuri: forward:/api/quant**/**
 
 server:
   port: 8081
