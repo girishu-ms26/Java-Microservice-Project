@@ -73,7 +73,7 @@ public class ProductService {
     public List<ProductResponseResource> saveProduct(Product product) {
         List<Product> products = new ArrayList<>();
         if(mongoTemplate.find(query(where("productName").is(product.getProductName())), Product.class).size()==0){
-            product.setLastModified(new Date());
+            product.setModifiedDate(new Date());
             products.add(mongoTemplate.save(product));
             return productUtil.productTransformerSuccessful(products);
         }

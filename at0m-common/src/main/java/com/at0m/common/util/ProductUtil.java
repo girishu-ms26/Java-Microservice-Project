@@ -22,7 +22,7 @@ public class ProductUtil {
             if(products.get(i).getQuantityAvailable() != 0) {
                 productResponseResource.setQuantityAvailable(products.get(i).getQuantityAvailable());
             }
-            productResponseResource.setLastModified(new Date());
+            productResponseResource.setModifiedDate(new Date());
             productResponseResources.add(productResponseResource);
         }
         return productResponseResources;

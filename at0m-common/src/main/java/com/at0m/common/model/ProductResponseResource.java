@@ -19,5 +19,5 @@ public class ProductResponseResource {
     private String productName;
     private String price;
     private int quantityAvailable;
-    private Date lastModified;
+    private Date modifiedDate;
 }

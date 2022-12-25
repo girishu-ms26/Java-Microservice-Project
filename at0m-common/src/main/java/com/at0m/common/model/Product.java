@@ -23,5 +23,5 @@ public class Product {
     private boolean availability;
     @Transient
     private int quantityAvailable;
-    private Date lastModified;
+    private Date modifiedDate;
 }
