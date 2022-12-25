@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: at0m-available-quantity-api
+  cloud:
+    config:
+      uri:
+        - http://localhost:8083/

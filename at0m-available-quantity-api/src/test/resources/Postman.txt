@@ -1,0 +1,18 @@
+[
+    {
+        "productName": "Xiaomi",
+        "quantityAvailable": "100"
+    },
+    {
+        "productName": "Iphone 12 pro max",
+        "quantityAvailable": "56"
+    },
+    {
+        "productName": "Iphone 4s",
+        "quantityAvailable": "76"
+    },
+    {
+        "productName": "Iphone 13 pro maxx",
+        "quantityAvailable": "79000"
+    }
+]

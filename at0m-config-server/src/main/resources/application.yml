@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: at0m-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/girishu-ms26/Java-Microservice-Project
+          searchPaths: at0m-configs
+
+server:
+  port: 8081
+
+eureka:
+  client:
+    service-url:
+      default-zone: ${EUREKA_URI:http://localhost:8761/eureka}
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${random.value}
+  enabled: true
