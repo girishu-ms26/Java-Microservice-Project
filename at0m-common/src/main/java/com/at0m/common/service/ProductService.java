@@ -7,6 +7,7 @@ import com.at0m.common.model.ProductResponseResource;
 import com.at0m.common.util.ProductUtil;
 import com.mongodb.MongoBulkWriteException;
 import com.mongodb.bulk.BulkWriteError;
+import com.mongodb.client.result.UpdateResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
@@ -74,6 +75,11 @@ public class ProductService {
         List<Product> products = new ArrayList<>();
         if(mongoTemplate.find(query(where("productName").is(product.getProductName())), Product.class).size()==0){
             product.setModifiedDate(new Date());
+            ProductAvailableQuantity productAvailableQuantity = new ProductAvailableQuantity();
+            productAvailableQuantity.setProductName(product.getProductName());
+            productAvailableQuantity.setQuantityAvailable(product.getQuantityAvailable());
+            productAvailableQuantity.setModifiedDate(product.getModifiedDate());
+            availableQuantityFeign.saveQuantity(productAvailableQuantity);
             products.add(mongoTemplate.save(product));
             return productUtil.productTransformerSuccessful(products);
         }
@@ -81,7 +87,6 @@ public class ProductService {
             products.add(product);
             return productUtil.productTransformerFail(products);
         }
-
     }
 
     public List<ProductResponseResource> saveListOfProducts(List<Product> products) {
@@ -116,13 +121,17 @@ public class ProductService {
         return productUtil.productTransformerSuccessful(products);
     }
 
-    public ProductResponseResource updateProduct(Product product) {
-        if (mongoTemplate.find(query(where("productName").is(product.getProductName())),Product.class).size()==1) {
-            mongoTemplate.save(product);
-            return (ProductResponseResource) productUtil.productTransformerSuccessful(Collections.singletonList(mongoTemplate.save(product)));
-        } else {
-            return productUtil.productTransformerFail((List<Product>) product).get(0);
+    public List<ProductResponseResource> updateProduct(List<Product> products) {
+        BulkOperations bulkOps = this.mongoTemplate.bulkOps(BulkOperations.BulkMode.UNORDERED,Product.class);
+        Iterator iterator = products.iterator();
+        while(iterator.hasNext()){
+            Product product = (Product) iterator.next();
+            Query query = productUtil.createQuery(product.getProductName());
+            Update update = productUtil.createUpdateQuery(product);
+            bulkOps.upsert(query,update);
         }
+        bulkOps.execute();
+        return productUtil.productTransformerSuccessful(products);
     }
 
     public List<ProductResponseResource> deleteAll() {
@@ -134,7 +143,8 @@ public class ProductService {
     public void deleteProduct(String productName){
         List<Product> product = mongoTemplate.find(query(where("productName").is(productName)),Product.class);
         if(product.size()>0){
-            mongoTemplate.remove(mongoTemplate.findById(product.get(0).getProductName(),Product.class,"products"));
+            Query query = productUtil.createQuery(productName);
+            mongoTemplate.remove(query,Product.class);
         }
     }
 }

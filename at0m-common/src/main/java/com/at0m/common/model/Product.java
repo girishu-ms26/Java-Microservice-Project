@@ -20,7 +20,6 @@ public class Product {
 
     private String productName;
     private String price;
-    private boolean availability;
     @Transient
     private int quantityAvailable;
     private Date modifiedDate;

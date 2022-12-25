@@ -19,7 +19,6 @@ public class ProductAvailableQuantity {
 
     private String productName;
     private int quantityAvailable;
-    private Date creationDate;
     private Date modifiedDate;
 }
 

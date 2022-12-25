@@ -30,4 +30,9 @@ public class AvailableQuantityController {
     public List<ProductAvailableQuantity> saveListOfQuantities(@RequestBody List<ProductAvailableQuantity> quantityWithProducts){
         return availableQuantityService.saveAll(quantityWithProducts);
     }
+
+    @PostMapping("/quantity")
+    public ProductAvailableQuantity saveQuantity(@RequestBody ProductAvailableQuantity productAvailableQuantity){
+        return availableQuantityService.saveAvailableQuantity(productAvailableQuantity);
+    }
 }

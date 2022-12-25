@@ -1,6 +1,8 @@
 package com.at0m.common.service;
 
+import com.at0m.common.model.Product;
 import com.at0m.common.model.ProductAvailableQuantity;
+import com.at0m.common.model.ProductResponseResource;
 import com.at0m.common.util.AvailableQuantityUtil;
 import com.mongodb.MongoBulkWriteException;
 import com.mongodb.bulk.BulkWriteError;
@@ -12,6 +14,8 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -64,6 +68,14 @@ public class AvailableQuantityService {
             return availableQuantityByName.get(0);
         }
         else{
+            return null;
+        }
+    }
+
+    public ProductAvailableQuantity saveAvailableQuantity(ProductAvailableQuantity productAvailableQuantity) {
+        if(mongoTemplate.find(query(where("productName").is(productAvailableQuantity.getProductName())), Product.class).size()==0){
+            return mongoTemplate.save(productAvailableQuantity);
+        } else {
             return null;
         }
     }

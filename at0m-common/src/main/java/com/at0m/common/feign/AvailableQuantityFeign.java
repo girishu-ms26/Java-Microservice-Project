@@ -5,6 +5,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -14,9 +15,12 @@ public interface AvailableQuantityFeign {
     @GetMapping("/api/quantities")
     List<ProductAvailableQuantity> getAllAvailableQuantities();
 
+    @GetMapping("/api/quantity/{productName}")
+    ProductAvailableQuantity getByProductname(@PathVariable String productName);
+
     @PostMapping("/api/quantities")
     List<ProductAvailableQuantity> saveListOfQuantities(List<ProductAvailableQuantity> availableQuantities);
 
-    @GetMapping("/api/quantity/{productName}")
-    ProductAvailableQuantity getByProductname(@PathVariable String productName);
+    @PostMapping("/api/quantity")
+    ProductAvailableQuantity saveQuantity(ProductAvailableQuantity productAvailableQuantity);
 }

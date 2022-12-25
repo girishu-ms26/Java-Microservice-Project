@@ -54,9 +54,9 @@ public class ProductController {
         return productService.deleteAll();
     }
 
-     @PutMapping("/products")
-    public ProductResponseResource updateProduct(@RequestBody Product product){
-        return productService.updateProduct(product);
+    @PutMapping("/products")
+    public List<ProductResponseResource> updateProduct(@RequestBody List<Product> products){
+        return productService.updateProduct(products);
     }
 
     @DeleteMapping("/products/{productName}")

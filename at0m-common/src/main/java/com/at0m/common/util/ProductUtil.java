@@ -5,6 +5,7 @@ import com.at0m.common.model.ProductResponseResource;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
+import org.springframework.data.mongodb.core.query.UpdateDefinition;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
@@ -51,6 +52,14 @@ public class ProductUtil {
 
     public Update createUpdateQuery(Product product){
         Update update = (new Update()
+                .set("productName",product.getProductName())
+                .set("price",product.getPrice())
+                .set("modifiedDate",new Date()));
+        return update;
+    }
+
+    public UpdateDefinition createUpdateDefinition(Product product){
+        UpdateDefinition update = (new Update()
                 .set("productName",product.getProductName())
                 .set("price",product.getPrice())
                 .set("modifiedDate",new Date()));
