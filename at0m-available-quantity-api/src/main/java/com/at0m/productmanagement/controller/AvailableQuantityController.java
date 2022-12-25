@@ -21,17 +21,17 @@ public class AvailableQuantityController {
         return availableQuantityService.getAllList();
     }
 
-    @GetMapping("/quantity/{productName}")
+    @GetMapping("/quantities/{productName}")
     public ProductAvailableQuantity getByProductname(@PathVariable String productName){
         return availableQuantityService.getByProductName(productName);
     }
 
-    @PostMapping("/quantities")
+    @PostMapping("/quantities/")
     public List<ProductAvailableQuantity> saveListOfQuantities(@RequestBody List<ProductAvailableQuantity> quantityWithProducts){
         return availableQuantityService.saveAll(quantityWithProducts);
     }
 
-    @PostMapping("/quantity")
+    @PostMapping("/quantities")
     public ProductAvailableQuantity saveQuantity(@RequestBody ProductAvailableQuantity productAvailableQuantity){
         return availableQuantityService.saveAvailableQuantity(productAvailableQuantity);
     }

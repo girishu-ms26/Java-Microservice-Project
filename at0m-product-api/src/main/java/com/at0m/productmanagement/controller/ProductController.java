@@ -39,12 +39,12 @@ public class ProductController {
         return productService.getProductByproductName(productName);
     }
 
-    @PostMapping("/product")
+    @PostMapping("/products")
     public List<ProductResponseResource> saveProduct(@RequestBody Product product){
         return productService.saveProduct(product);
     }
 
-    @PostMapping("/products")
+    @PostMapping("/products/")
     public List<ProductResponseResource> saveListOfProducts(@RequestBody List<Product> products){
         return productService.saveListOfProducts(products);
     }

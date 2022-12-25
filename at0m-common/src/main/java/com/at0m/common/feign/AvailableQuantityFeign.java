@@ -15,12 +15,12 @@ public interface AvailableQuantityFeign {
     @GetMapping("/api/quantities")
     List<ProductAvailableQuantity> getAllAvailableQuantities();
 
-    @GetMapping("/api/quantity/{productName}")
+    @GetMapping("/api/quantities/{productName}")
     ProductAvailableQuantity getByProductname(@PathVariable String productName);
 
-    @PostMapping("/api/quantities")
+    @PostMapping("/api/quantities/")
     List<ProductAvailableQuantity> saveListOfQuantities(List<ProductAvailableQuantity> availableQuantities);
 
-    @PostMapping("/api/quantity")
+    @PostMapping("/api/quantities")
     ProductAvailableQuantity saveQuantity(ProductAvailableQuantity productAvailableQuantity);
 }
