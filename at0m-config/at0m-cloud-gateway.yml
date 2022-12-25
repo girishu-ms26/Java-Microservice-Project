@@ -6,34 +6,11 @@ spring:
           uri: lb://AT0M-PRODUCT-API
           predicates:
             - Path=/api/produ**/**
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: AT0M-PRODUCT-API
-                fallbackuri: forward:/api/produ**/**
         - id: AT0M-AVAILABLE-QUANTITY-API
           uri: lb://AT0M-AVAILABLE-QUANTITY-API
           predicates:
             - Path=/api/quant**/**
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: AT0M-AVAILABLE-QUANTITY-API
-                fallbackuri: forward:/api/quant**/**
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: hystrix.stream
-
-hystrix:
-  command:
-    fallbackcmd:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 5000
 
 server:
   port: 8081
