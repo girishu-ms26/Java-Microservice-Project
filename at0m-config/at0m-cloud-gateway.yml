@@ -21,5 +21,19 @@ spring:
                 name: AT0M-AVAILABLE-QUANTITY-API
                 fallbackuri: forward:/api/quant**/**
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+
+hystrix:
+  command:
+    fallbackcmd:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+
 server:
   port: 8081
