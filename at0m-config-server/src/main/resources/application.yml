@@ -7,6 +7,7 @@ spring:
         git:
           uri: https://github.com/girishu-ms26/Java-Microservice-Project
           searchPaths: at0m-config
+          default-label: master
 
 server:
   port: 8080
