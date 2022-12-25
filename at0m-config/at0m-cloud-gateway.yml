@@ -1,2 +1,15 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: AT0M-PRODUCT-API
+          uri: lb://AT0M-PRODUCT-API
+          predicates:
+            - Path=/api/produ**/**
+        - id: AT0M-AVAILABLE-QUANTITY-API
+          uri: lb://AT0M-AVAILABLE-QUANTITY-API
+          predicates:
+            - Path=/api/quant**/**
+
 server:
   port: 8081
