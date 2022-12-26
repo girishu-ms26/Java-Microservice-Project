@@ -1,12 +1,8 @@
 spring:
   data:
     mongodb:
-      port: 27017
-      host: ec2-3-110-127-128.ap-south-1.compute.amazonaws.com
-      user: at0m
-      password: at0m
-      auto-index-creation: true
-      database: at0m
+      username: at0m
+      uri: mongodb://at0m@ec2-3-110-127-128.ap-south-1.compute.amazonaws.com:27017/?serverSelectionTimeoutMS=5000&connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-256&3t.uriVersion=3&3t.connection.name=at0m
 
 eureka:
   client:
