@@ -1,9 +1,9 @@
 spring:
   data:
     mongodb:
-      password: at0m
+      password: '{cipher}ib0u'
       port: 27017
-      uri: mongodb://at0m:at0m@ec2-3-110-127-128.ap-south-1.compute.amazonaws.com:27017/?serverSelectionTimeoutMS=5000&connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-256
+      uri: mongodb://at0m:${mongodb.password}@ec2-3-110-127-128.ap-south-1.compute.amazonaws.com:27017/?serverSelectionTimeoutMS=5000&connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-256
       auto-index-creation: true
       database: at0m
 
