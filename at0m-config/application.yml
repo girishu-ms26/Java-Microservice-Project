@@ -2,7 +2,7 @@ spring:
   data:
     mongodb:
       port: 27017
-      host: localhost
+      host: ec2-3-110-127-128.ap-south-1.compute.amazonaws.com
       auto-index-creation: true
       database: at0m
 
