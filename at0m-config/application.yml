@@ -1,8 +1,10 @@
 spring:
   data:
     mongodb:
-      username: at0m
-      uri: mongodb://at0m:at0m@ec2-3-110-127-128.ap-south-1.compute.amazonaws.com:27017/
+      port: 27017
+      host: localhost
+      auto-index-creation: true
+      database: at0m
 
 eureka:
   client:
