@@ -58,7 +58,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-		<finalName>at0m-eureka-server</finalName>
+		<finalName>at0m-config-server</finalName>
 	</build>
 	<repositories>
 		<repository>

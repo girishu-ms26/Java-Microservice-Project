@@ -111,6 +111,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>at0m-available-quantity-api</finalName>
 	</build>
 	<repositories>
 		<repository>

@@ -114,5 +114,6 @@
                 </configuration>
             </plugin>
         </plugins>
+        <finalName>at0m-product-api</finalName>
     </build>
 </project>
