@@ -1,7 +1,18 @@
 spring:
   application:
     name: at0m-available-quantity-api
+---
+spring:
+  profiles: dev
   cloud:
     config:
       uri:
         - http://localhost:8080/
+---
+spring:
+  profiles: prod
+  cloud:
+    config:
+      uri:
+        - http://localhost:8080/
+---

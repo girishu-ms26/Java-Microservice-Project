@@ -30,14 +30,14 @@ spring:
   data:
     mongodb:
       port: 27017
-      uri: mongodb://at0m:at0m@ec2-3-110-127-128.ap-south-1.compute.amazonaws.com:27017/?serverSelectionTimeoutMS=5000&connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-256
+      uri: mongodb://at0m:at0m@ec2-15-206-160-60.ap-south-1.compute.amazonaws.com:27017/?serverSelectionTimeoutMS=5000&connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-256
       auto-index-creation: true
       database: at0m
 
 eureka:
   client:
     service-url:
-      default-zone: ${EUREKA_URI:http://ec2-43-205-113-36.ap-south-1.compute.amazonaws.com:8761/eureka}
+      default-zone: ${EUREKA_URI:http://ec2-15-206-160-60.ap-south-1.compute.amazonaws.com:8761/eureka}
     fetch-registry: true
   instance:
     prefer-ip-address: true
@@ -45,7 +45,7 @@ eureka:
   enabled: true
 
 ribbon:
-  listOfServers: http://ec2-43-205-113-36.ap-south-1.compute.amazonaws.com:8761/
+  listOfServers: http://ec2-15-206-160-60.ap-south-1.compute.amazonaws.com:8761/
   eureka:
     enabled: true
 
