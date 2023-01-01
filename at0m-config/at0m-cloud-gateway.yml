@@ -11,6 +11,5 @@ spring:
           predicates:
             - Path=/api/quant**/**
 
-
 server:
   port: 8081
