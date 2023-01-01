@@ -1,11 +1,14 @@
 spring:
   application:
     name: at0m-eureka-server
-
 server:
   port: 8761
 
+---
+spring:
+  profiles: dev
 eureka:
+  environment: DEV
   instance:
     hostname: localhost
     preferIpAddress: true
@@ -14,3 +17,17 @@ eureka:
     register-with-eureka: false
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+---
+spring:
+  profiles: prod
+eureka:
+  environment: PROD
+  instance:
+    hostname: localhost
+    preferIpAddress: true
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+---
