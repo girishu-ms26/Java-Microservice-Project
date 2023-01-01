@@ -23,7 +23,7 @@ spring:
 eureka:
   environment: PROD
   instance:
-    hostname: ec2-15-206-160-60.ap-south-1.compute.amazonaws.com
+    hostname: localhost
     preferIpAddress: true
   client:
     fetch-registry: false

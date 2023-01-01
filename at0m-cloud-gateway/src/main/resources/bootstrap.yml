@@ -15,5 +15,5 @@ spring:
   cloud:
     config:
       uri:
-        - http://localhost:8080/
+        - http://ec2-15-206-160-60.ap-south-1.compute.amazonaws.com:8080/
 ---
