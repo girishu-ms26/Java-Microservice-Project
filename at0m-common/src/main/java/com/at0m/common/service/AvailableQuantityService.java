@@ -2,7 +2,6 @@ package com.at0m.common.service;
 
 import com.at0m.common.model.Product;
 import com.at0m.common.model.ProductAvailableQuantity;
-import com.at0m.common.model.ProductResponseResource;
 import com.at0m.common.util.AvailableQuantityUtil;
 import com.mongodb.MongoBulkWriteException;
 import com.mongodb.bulk.BulkWriteError;
@@ -14,8 +13,6 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 

@@ -1,13 +1,12 @@
 package com.at0m.common.service;
 
 import com.at0m.common.feign.AvailableQuantityFeign;
-import com.at0m.common.model.ProductAvailableQuantity;
 import com.at0m.common.model.Product;
+import com.at0m.common.model.ProductAvailableQuantity;
 import com.at0m.common.model.ProductResponseResource;
 import com.at0m.common.util.ProductUtil;
 import com.mongodb.MongoBulkWriteException;
 import com.mongodb.bulk.BulkWriteError;
-import com.mongodb.client.result.UpdateResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
@@ -17,7 +16,10 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
 
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 import static org.springframework.data.mongodb.core.query.Query.query;
