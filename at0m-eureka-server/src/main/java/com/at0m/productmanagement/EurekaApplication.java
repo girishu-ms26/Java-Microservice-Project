@@ -1,4 +1,4 @@
-package com.at0m.eureka;
+package com.at0m.productmanagement;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
