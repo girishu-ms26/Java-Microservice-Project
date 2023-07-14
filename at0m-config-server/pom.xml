@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.at0m</groupId>
 	<artifactId>config-server</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>2.0.1-SNAPSHOT</version>
 	<name>at0m-config-server</name>
 	<description>at0m-config-server</description>
 	<properties>
