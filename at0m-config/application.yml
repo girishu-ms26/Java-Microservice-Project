@@ -7,7 +7,10 @@ spring:
       host: localhost
       auto-index-creation: true
       database: at0m
-
+  devtools:
+    restart:
+      poll-interval: 2s
+    quiet-period: 1s
 eureka:
   client:
     service-url:
