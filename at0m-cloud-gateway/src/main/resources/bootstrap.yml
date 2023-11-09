@@ -9,6 +9,8 @@ spring:
     config:
       uri:
         - http://localhost:8080/
+server:
+  port: 8081
 ---
 spring:
   profiles: prod
@@ -16,4 +18,6 @@ spring:
     config:
       uri:
         - http://localhost:8080/
+  server:
+    port: 8081
 ---

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -40,7 +41,7 @@ public class ProductController {
     }
 
     @PostMapping("/products")
-    public List<ProductResponseResource> saveProduct(@RequestBody Product product){
+    public List<ProductResponseResource> saveProduct(@RequestBody @Valid Product product){
         return productService.saveProduct(product);
     }
 
