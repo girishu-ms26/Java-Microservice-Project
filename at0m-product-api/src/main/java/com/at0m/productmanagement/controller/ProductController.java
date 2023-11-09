@@ -19,15 +19,8 @@ public class ProductController {
     @Autowired
     private Environment environment;
 
-
     public ProductController(ProductService productService) {
         this.productService = productService;
-    }
-
-    @GetMapping("/data")
-    public String getBookData() {
-        return "Product-Service, Running on port: "
-                +environment.getProperty("local.server.port");
     }
 
     @GetMapping("/products")
@@ -65,8 +58,4 @@ public class ProductController {
         productService.deleteProduct(productName);
     }
 
-    @GetMapping("/hi/")
-    public List<ProductResponseResource> random(){
-        return productService.getAllProductsList();
-    }
 }
