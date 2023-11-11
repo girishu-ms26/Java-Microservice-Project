@@ -16,45 +16,54 @@ public class ProductController {
 
     private final ProductService productService;
 
-    @Autowired
-    private Environment environment;
-
     public ProductController(ProductService productService) {
         this.productService = productService;
     }
 
     @GetMapping("/products")
-    public List<ProductResponseResource> getAllProductsList(){
+    public List<ProductResponseResource> getAllProductsList(
+            @RequestHeader(value = "apiKey", required = true) String apiKey){
         return productService.getAllProductsList();
     }
 
     @GetMapping("/products/{productName}")
-    public ProductResponseResource getProductByproductName(@PathVariable String productName){
+    public ProductResponseResource getProductByproductName(
+            @RequestHeader(value = "apiKey", required = true) String apiKey,
+            @PathVariable @Valid String productName){
         return productService.getProductByproductName(productName);
     }
 
     @PostMapping("/products")
-    public List<ProductResponseResource> saveProduct(@RequestBody @Valid Product product){
+    public List<ProductResponseResource> saveProduct(
+            @RequestHeader(value = "apiKey", required = true) String apiKey,
+            @RequestBody @Valid Product product){
         return productService.saveProduct(product);
     }
 
     @PostMapping("/products/")
-    public List<ProductResponseResource> saveListOfProducts(@RequestBody List<Product> products){
+    public List<ProductResponseResource> saveListOfProducts(
+            @RequestHeader(value = "apiKey", required = true) String apiKey,
+            @RequestBody @Valid List<Product> products){
         return productService.saveListOfProducts(products);
     }
 
     @DeleteMapping("/products")
-    public List<ProductResponseResource> deleteAllProducts(){
+    public List<ProductResponseResource> deleteAllProducts(
+            @RequestHeader(value = "apiKey", required = true) String apiKey){
         return productService.deleteAll();
     }
 
     @PutMapping("/products")
-    public List<ProductResponseResource> updateProduct(@RequestBody List<Product> products){
+    public List<ProductResponseResource> updateProduct(
+            @RequestHeader(value = "apiKey", required = true) String apiKey,
+            @RequestBody @Valid List<Product> products){
         return productService.updateProduct(products);
     }
 
     @DeleteMapping("/products/{productName}")
-    public void deleteProduct(@PathVariable String productName){
+    public void deleteProduct(
+            @RequestHeader(value = "apiKey", required = true) String apiKey,
+            @PathVariable String productName){
         productService.deleteProduct(productName);
     }
 

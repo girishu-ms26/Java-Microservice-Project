@@ -11,6 +11,9 @@ spring:
     restart:
       poll-interval: 2s
     quiet-period: 1s
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: true
 eureka:
   client:
     service-url:
@@ -36,7 +39,9 @@ spring:
       uri: mongodb://at0m:at0m@localhost:27017/?serverSelectionTimeoutMS=5000&connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-256
       auto-index-creation: true
       database: at0m
-
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: true
 eureka:
   client:
     service-url:
