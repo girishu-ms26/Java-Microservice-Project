@@ -3,12 +3,15 @@ package com.at0m.productmanagement.controller;
 import com.at0m.common.model.Product;
 import com.at0m.common.model.ProductResponseResource;
 import com.at0m.common.service.ProductService;
+import io.swagger.models.auth.In;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api")
