@@ -51,9 +51,9 @@ public class ProductController {
     }
 
     @DeleteMapping("/products")
-    public List<ProductResponseResource> deleteAllProducts(
+    public void deleteAllProducts(
             @RequestHeader(value = "apiKey", required = true) String apiKey){
-        return productService.deleteAll();
+        productService.deleteAll();
     }
 
     @PutMapping("/products")

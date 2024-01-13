@@ -139,14 +139,20 @@ public class ProductService {
     public List<ProductResponseResource> deleteAll() {
         List<Product> product = mongoTemplate.findAll(Product.class, "product");
         mongoTemplate.dropCollection("product");
+        availableQuantityFeign.deleteAvailableQuantity();
         return productUtil.productTransformerSuccessful(product);
     }
 
     public void deleteProduct(String productName){
-        List<Product> product = mongoTemplate.find(query(where("productName").is(productName)),Product.class);
-        if(product.size()>0){
-            Query query = productUtil.createQuery(productName);
-            mongoTemplate.remove(query,Product.class);
+        try {
+            List<Product> product = mongoTemplate.find(query(where("productName").is(productName)), Product.class);
+            if (product.size() > 0) {
+                Query query = productUtil.createQuery(productName);
+                mongoTemplate.remove(query, Product.class);
+                availableQuantityFeign.deleteAvailableQuantity();
+            }
+        } catch(Exception e) {
+            log.error("Error deleting Products");
         }
     }
 }

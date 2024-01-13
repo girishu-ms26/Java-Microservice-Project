@@ -2,10 +2,7 @@ package com.at0m.common.feign;
 
 import com.at0m.common.model.ProductAvailableQuantity;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,4 +20,6 @@ public interface AvailableQuantityFeign {
 
     @PostMapping("/api/quantities")
     ProductAvailableQuantity saveQuantity(ProductAvailableQuantity productAvailableQuantity);
+    @DeleteMapping("/api/quantities")
+    void deleteAvailableQuantity();
 }

@@ -17,10 +17,8 @@ public class Product {
 
     @NotNull(message = "productName cannot be null")
     private String productName;
-
     @NotNull
     private String price;
-
     @Transient
     private int quantityAvailable;
     private Date modifiedDate;

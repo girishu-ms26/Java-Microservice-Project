@@ -76,4 +76,12 @@ public class AvailableQuantityService {
             return null;
         }
     }
+
+    public void deleteAvailableQuantities() {
+        try {
+            mongoTemplate.dropCollection("productAvailableQuantity");
+        } catch (Exception e) {
+            log.error("Error deleting Collection");
+        }
+    }
 }

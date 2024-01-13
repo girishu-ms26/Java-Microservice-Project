@@ -35,4 +35,8 @@ public class AvailableQuantityController {
     public ProductAvailableQuantity saveQuantity(@RequestBody ProductAvailableQuantity productAvailableQuantity){
         return availableQuantityService.saveAvailableQuantity(productAvailableQuantity);
     }
+    @DeleteMapping("/quantities")
+    public void deleteAvailableQuantity() {
+        availableQuantityService.deleteAvailableQuantities();
+    }
 }
