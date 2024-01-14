@@ -73,7 +73,7 @@ public class ProductService {
         }
     }
 
-    public List<ProductResponseResource> saveProduct(Product product) {
+    public ProductResponseResource saveProduct(Product product) {
         List<Product> products = new ArrayList<>();
         if(mongoTemplate.find(query(where("productName").is(product.getProductName())), Product.class).size()==0){
             product.setModifiedDate(new Date());
@@ -83,11 +83,11 @@ public class ProductService {
             productAvailableQuantity.setModifiedDate(product.getModifiedDate());
             availableQuantityFeign.saveQuantity(productAvailableQuantity);
             products.add(mongoTemplate.save(product));
-            return productUtil.productTransformerSuccessful(products);
+            return productUtil.productTransformerSuccessful(products).get(0);
         }
         else{
             products.add(product);
-            return productUtil.productTransformerFail(products);
+            return productUtil.productTransformerFail(products).get(0);
         }
     }
 

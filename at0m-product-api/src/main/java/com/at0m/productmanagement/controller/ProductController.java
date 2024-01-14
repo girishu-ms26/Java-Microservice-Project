@@ -21,7 +21,7 @@ public class ProductController {
 
     @GetMapping("/products")
     public List<ProductResponseResource> getAllProductsList(
-            /*@RequestHeader(value = "apiKey", required = true) String apiKey*/){
+            @RequestHeader(value = "apiKey", required = true) String apiKey) {
         return productService.getAllProductsList();
     }
 
@@ -33,7 +33,7 @@ public class ProductController {
     }
 
     @PostMapping("/products")
-    public List<ProductResponseResource> saveProduct(
+    public ProductResponseResource saveProduct(
             @RequestHeader(value = "apiKey", required = true) String apiKey,
             @RequestBody @Valid Product product){
         return productService.saveProduct(product);
