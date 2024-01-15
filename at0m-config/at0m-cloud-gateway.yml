@@ -10,6 +10,14 @@ spring:
           uri: lb://AT0M-AVAILABLE-QUANTITY-API
           predicates:
             - Path=/api/quant**/**
+      globalcors:
+        cors-configurations:
+          allowedOrigins: "http://localhost:3000/"
+          allowedMethods:
+            - GET
+            - POST
+            - PUT
+            - DELETE
 
 server:
   port: 8081
