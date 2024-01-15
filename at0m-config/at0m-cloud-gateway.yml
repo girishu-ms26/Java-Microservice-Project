@@ -12,7 +12,7 @@ spring:
             - Path=/api/quant**/**
       globalcors:
         cors-configurations:
-          allowedOrigins: "http://localhost:3000/"
+          allowedOrigins: http://localhost:3000/
           allowedMethods:
             - GET
             - POST
